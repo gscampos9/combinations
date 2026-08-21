@@ -1,0 +1,16 @@
+#$ -pe serial 1-4
+#$ -cwd
+#$ -S /bin/bash
+#$ -l mfree=96G,h_rt=96:00:00
+
+module load R/4.5.1
+
+INPUT="/net/eichler/vol28/home/gscampos/nobackups/projects/combinations/results_221/CADD20_2_2_1_input_NO-LONG-GENES.txt"
+OUTPUT="/net/eichler/vol28/home/gscampos/nobackups/projects/combinations/results_221/CADD20_2_2_1_output_NO-LONG-GENES.txt"
+COMBO_LENGTH=2
+MIN_INDV_THRESHOLD=2
+MAX_FREQ_THRESHOLD=1
+PVAL_FILTER_THRESHOLD=0.05
+
+time Rscript /net/eichler/vol28/home/gscampos/nobackups/projects/combinations/scripts_upd/core/run_rarecomb.R "$INPUT" "$OUTPUT" \
+    "$COMBO_LENGTH" "$MIN_INDV_THRESHOLD" "$MAX_FREQ_THRESHOLD" "$PVAL_FILTER_THRESHOLD"

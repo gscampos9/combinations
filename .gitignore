@@ -1,0 +1,16 @@
+# Code + docs only -- this repo tracks scripts/, README.md, affected_parents.txt.
+# Everything below is data: large (results_221/ alone is ~2.8GB, well past
+# GitHub's 100MB per-file limit) and already lives on the cluster -- pull
+# code here, keep data where it already is, don't sync it through git.
+__pycache__/
+*.pyc
+.claude/
+
+/results_221/
+/simulation/
+/figures/
+*.xlsx
+gene_pairs_pro_sib.tsv
+gene.py
+annotated_gene_pairs_cases.tsv
+annotated_gene_pairs_controls.tsv

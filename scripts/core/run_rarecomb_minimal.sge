@@ -1,0 +1,13 @@
+#$ -pe serial 1-3
+#$ -cwd
+#$ -S /bin/bash
+#$ -l mfree=96G,h_rt=96:00:00
+
+module load R/4.5.1
+
+Rscript -e '
+library(arules); library(RareComb)
+input <- data.table::fread("/net/eichler/vol28/home/gscampos/nobackups/projects/combinations/results_221/CADD20_2_2_1_input_control.txt", header=TRUE, sep="\t", data.table=FALSE)
+output <- compare_enrichment(input, 2, 2, 1, input_format="Input_", output_format="Output_", adj_pval_type="BH", sample_names_ind="Y")
+write.csv(output, "/net/eichler/vol28/home/gscampos/nobackups/projects/combinations/results_221/CADD20_2_2_1_output_control.txt", row.names=FALSE)
+'
