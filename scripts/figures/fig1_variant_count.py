@@ -12,7 +12,7 @@ Figure 1 -- per-individual variant count, cases (probands) vs. controls
      true per-person VARIANT count, not a gene-hit count -- two qualifying
      variants in the same gene count as 2 here (they'd count as 1 "gene
      hit" in the RareComb boolean matrix Figures 2/3/5's gene tables use).
-  C. Parentally Inherited Variant (PIV) -- panel B's set, restricted to
+  C. Private Inherited Variant (PIV) -- panel B's set, restricted to
      inherited-from-parent origin.
   D. De Novo Mutation (DNM) -- panel B's set, restricted to de novo origin
      (parsed_dataset.tsv's own column calls this "DNV"; shown as "DNM" here
@@ -86,7 +86,7 @@ def main():
     stats["C_PIV"] = panel(
         axes[2], "C", case_c, control_c,
         "Damaging PIV variants\nper individual",
-        "Parentally Inherited Variant (PIV)")
+        "Private Inherited Variant (PIV)")
     stats["D_DNM"] = panel(
         axes[3], "D", case_d, control_d,
         "Damaging DNM variants\nper individual",
